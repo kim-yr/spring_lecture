@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+//spring container 띄우기 위한 사전 포석
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.alo0onge.controller")

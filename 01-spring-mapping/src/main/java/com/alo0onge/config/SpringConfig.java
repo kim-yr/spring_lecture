@@ -11,19 +11,16 @@ public class SpringConfig extends AbstractAnnotationConfigDispatcherServletIniti
 	// 프로젝트에 사용할 Beans 정의하기 위한 class지정
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
-		return new Class[] { RootAppContext.class };
+		return new Class[] { RootAppContext.class }; //config에 있는 파일 이름이랑 같아야 함
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		// TODO Auto-generated method stub
-		return new Class[] { ServletAppContext.class };
+		return new Class[] { ServletAppContext.class }; //config에 있는 파일 이름이랑 같아야 함
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		// TODO Auto-generated method stub
 		return new String[] { "/" };
 	}
 
