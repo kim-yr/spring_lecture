@@ -18,6 +18,7 @@ public class TestController02 {
 		selectDto.setData02("kiwi");
 		selectDto.setData03("octopus");
 		selectDto.setData04("cat");
+		selectDto.setData05("kia");
 
 		////////////////////////////////////////////////////
 		String fruitList[] = { "apple", "banana", "kiwi" };

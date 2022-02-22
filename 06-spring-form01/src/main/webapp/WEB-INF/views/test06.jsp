@@ -47,8 +47,26 @@ form div {
 			</div>
 			<div>
 				<form:select path="data04">
-					<form:options items="${animalList02 }" itemLabel="key" itemValue="value" />
+					<form:options items="${animalList02 }" itemLabel="key"
+						itemValue="value" />
 				</form:select>
+			</div>
+			<div>
+				<form:checkbox path="data05" value="tigers" />
+				기아타이거즈
+				<form:checkbox path="data05" value="lions" />
+				삼성라이언즈
+				<form:checkbox path="data05" value="giants" />
+				롯데자이언트
+				<form:checkbox path="data05" value="bears" />
+				두산베어스
+			</div>
+			<div>
+				<form:checkboxes path="data03" items="${animalList }" />
+			</div>
+			<div>
+				<form:checkboxes path="data04" items="${animalList02 }"
+					itemLabel="key" itemValue="value" />
 			</div>
 		</form:form>
 	</div>

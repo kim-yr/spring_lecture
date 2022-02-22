@@ -5,7 +5,14 @@ public class SelectDto {
 	private String data02;
 	private String data03;
 	private String data04;
+	private String data05;
 	
+	public String getData05() {
+		return data05;
+	}
+	public void setData05(String data05) {
+		this.data05 = data05;
+	}
 	public String getData04() {
 		return data04;
 	}
