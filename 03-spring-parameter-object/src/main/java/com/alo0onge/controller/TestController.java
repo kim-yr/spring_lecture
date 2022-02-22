@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.alo0onge.model.BoardDto;
 import com.alo0onge.model.DataDto;
 import com.alo0onge.model.MemberDto;
 
@@ -31,7 +33,7 @@ public class TestController {
 
 	@GetMapping("/ParameterObject02.do")
 //	public String parameterObject02(@ModelAttribute DataDto dataDto) {
-	public String parameterObject02(DataDto dataDto) {//속성 값만 정확히 매핑되면 통째로 받을 수 있음
+	public String parameterObject02(DataDto dataDto) {// 속성 값만 정확히 매핑되면 통째로 받을 수 있음
 		int data01 = dataDto.getData01();
 		int data02 = dataDto.getData02();
 		System.out.println("data01===" + data01);
@@ -41,8 +43,9 @@ public class TestController {
 		}
 		return null;
 	}
-	@GetMapping("//ParameterObject03.do")
-	public String parameterObject0(@ModelAttribute MemberDto memberDto) {
+
+	@GetMapping("/ParameterObject03.do")
+	public String parameterObject03(@ModelAttribute MemberDto memberDto) {
 		int no = memberDto.getNo();
 		String id = memberDto.getId();
 		String name = memberDto.getName();
@@ -51,7 +54,21 @@ public class TestController {
 		System.out.println("id===" + id);
 		System.out.println("name===" + name);
 		System.out.println("password===" + password);
-		System.out.println("no+10===" + (no+10));
+		System.out.println("no+10===" + (no + 10));
+		return null;
+	}
+	@PostMapping("/ParameterObject04.do")
+	public String parameterObject04(@ModelAttribute BoardDto boardDto) {
+		int no = boardDto.getNo();
+		String subject = boardDto.getSubject();
+		String password = boardDto.getPassword();
+		String regdate = boardDto.getRegdate();
+		int hit = boardDto.getHit();
+		System.out.println("no==="+no);
+		System.out.println("subject==="+subject);
+		System.out.println("password==="+password);
+		System.out.println("regdate==="+regdate);
+		System.out.println("hit==="+hit);
 		return null;
 	}
 }
