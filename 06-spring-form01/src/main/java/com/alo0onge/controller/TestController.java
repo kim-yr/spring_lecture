@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.alo0onge.model.BoardDto;
 import com.alo0onge.model.MemberDto;
 
 @Controller
@@ -46,5 +47,28 @@ public class TestController {
 		memberDto.setPassword("1111");
 		model.addAttribute("memberDto", memberDto);
 		return "test04";
+	}
+	
+	@GetMapping("/Board.do")
+	public String boardTest(Model model) {
+		BoardDto boardDto = new BoardDto();
+		boardDto.setHit(10);
+		boardDto.setNo(7);
+		boardDto.setSubject("졸립다 아주마니");
+		boardDto.setRegdate("2022-02-22");
+		boardDto.setPassword("1234");
+		model.addAttribute("boardDto", boardDto);
+		return "board";
+	}
+	
+	@GetMapping("/Test05.do")
+	public String test05(Model model) {
+		MemberDto memberDto = new MemberDto();
+		memberDto.setNo(30);
+		memberDto.setId("captain marvel");
+		memberDto.setName("브리라순자");
+		memberDto.setPassword("1111");
+		model.addAttribute("memberDto", memberDto);
+		return "test05";
 	}
 }

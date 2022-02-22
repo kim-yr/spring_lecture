@@ -13,6 +13,9 @@
 		<li><a href="Test02.do">test02로 보내기</a></li>
 		<li><a href="Test03.do">test03로 보내기</a></li>
 		<li><a href="Test04.do">test04로 보내기</a></li>
+		<li><a href="Test05.do">test05로 보내기</a></li>
+		<li><a href="Test06.do">test06로 보내기</a></li>
+		<li><a href="Board.do">board로 보내기</a></li>
 	</ul>
 </body>
 </html>

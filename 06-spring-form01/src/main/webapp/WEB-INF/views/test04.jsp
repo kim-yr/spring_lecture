@@ -14,7 +14,7 @@
 </style>
 <body>
 	<h1>Form</h1>
-	<div>
+	<div><!-- path에 있는 값이 html에서 id와 name값으로 연결됨 -->
 		<form:form modelAttribute="memberDto" method="POST" action="Result.do">
 			<div><label><span>no : </span><form:input path="no" /></label></div> <!-- 닫는 태그 슬래시 꼭 써줘야 함 -->
 			<div><label><span>name : </span><form:input path="name" /></label></div>
