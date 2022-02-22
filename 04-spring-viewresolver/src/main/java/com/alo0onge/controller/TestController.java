@@ -18,18 +18,21 @@ public class TestController {
 		request.setAttribute("msg", "hello Spring");
 		return "test02";
 	}
+	
 	@GetMapping("/Test03.do")
 	public String test03(Model model) {
+		//request에 데이터 담겨있음
+		//data를 jsp에 넘겨야 한다면 ==> Model / HttpServletRequest 사용하면 된다
 		model.addAttribute("msg", "hello Spring");
 		model.addAttribute("data", 1004);
 		return "test03";
 	}
 	@GetMapping("/Test04.do")
 	public ModelAndView test04(ModelAndView mav) {
+		//request에 데이터 담겨있음
 		mav.addObject("msg", "hello Spring");
 		mav.addObject("data", 1005);
 		mav.setViewName("test04");
-		
 		return mav;
 	}
 }
