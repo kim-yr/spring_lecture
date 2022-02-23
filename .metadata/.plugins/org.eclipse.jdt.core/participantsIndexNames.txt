@@ -27,6 +27,8 @@ C:\Users\user\Desktop\tis-java\spring_lecture\.metadata\.plugins\org.eclipse.jst
 \01-spring-mapping\src\main\java
 C:\Users\user\Desktop\tis-java\spring_lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4264014165.index
 \07-spring-redirect-forward\src\main\java
+C:\Users\user\Desktop\tis-java\spring_lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\125902392.index
+\10-spring-member\src\main\java
 C:\Users\user\Desktop\tis-java\spring_lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\283947753.index
 \08-spring-request-scope\src\main\java
 C:\Users\user\Desktop\tis-java\spring_lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1809601343.index

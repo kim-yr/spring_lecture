@@ -2,33 +2,44 @@ package com.alo0onge.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/member")
 public class MemberController {
 
-	@GetMapping("/member/List.do")
+	@GetMapping("/List.do")
 	public String list() {
 		return "member/list";
 	}
 
-	@GetMapping("/member/Login.do")
+	@GetMapping("/Login.do")
 	public String login() {
 		return "member/login";
 	}
 
-	@GetMapping("/member/Logout.do")
+	@GetMapping("/Logout.do")
 	public String logout() {
 		return "member/logout";
 	}
 
-	@GetMapping("/member/Join.do")
+	@GetMapping("/Join.do")
 	public String join() {
 		return "member/join";
 	}
 
-	@GetMapping("/member/Info.do")
+	@GetMapping("/Info.do")
 	public String info() {
 		return "member/info";
 	}
 
+	@GetMapping("/Update.do")
+	public String update() {
+		return "member/update";
+	}
+
+	@GetMapping("/Delete.do")
+	public String delete() {
+		return "member/delete";
+	}
 }
