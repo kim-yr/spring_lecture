@@ -8,5 +8,9 @@
 </head>
 <body>
 	<h1>sub 03</h1>
+	<h2>${boardDto.no }</h2>
+	<h2>${boardDto.subject }</h2>
+	<h2>${boardDto.regDate }</h2>
+	<h2>${boardDto.hit }</h2>
 </body>
 </html>

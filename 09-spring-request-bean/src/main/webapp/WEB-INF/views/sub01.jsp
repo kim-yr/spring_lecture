@@ -9,6 +9,9 @@
 <body>
 	<h1>sub 01</h1>
 	<h2>${dataDto.data01 }</h2> 
-	<h2>${dataDto.data02 }</h2> 
+	<h2>${dataDto.data02 }</h2>
+	<hr> 
+	<h2>${dataDto02.data03 }</h2> 
+	<h2>${dataDto02.data04 }</h2> 
 </body>
 </html>

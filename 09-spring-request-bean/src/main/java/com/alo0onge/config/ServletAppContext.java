@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.alo0onge.controller")
-@ComponentScan("com.alo0onge.model")
+@ComponentScan("com.alo0onge.model") //자동등록
 
 //component scan 한 다음에 container에 담아둠
 public class ServletAppContext implements WebMvcConfigurer {

@@ -13,7 +13,7 @@
 	<!-- scan한 패키지 내부의 클래스 중 Controller annotaion을 자기고 있는 Class를 Controller로 로딩시키기. -->                               
 	<annotation-driven />
 	
-	<!--  scan할 패키지를 정의 -->
+	<!-- 스프링에게 미리 알려주는 scan할 패키지를 정의 -->
 	<context:component-scan base-package="com.alo0onge.controller" />
 	
 	<!-- view rosolver 정의 -->
