@@ -24,11 +24,11 @@
 		  				</tr>
 		  				<tr>
 		  					<th>패스워드 <span class="required">*</span></th>
-		  					<td><input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력하세요."></td>
+		  					<td><input type="password" name="password" id="user_pw" placeholder="비밀번호를 입력하세요."></td>
 		  				</tr>
 		  				<tr>
 		  					<th>패스워드 확인 <span class="required">*</span></th>
-		  					<td><input type="password" name="user_pw_confirm" id="user_pw_confirm" placeholder="비밀번호를 입력하세요."></td>
+		  					<td><input type="password" name="password_confirm" id="user_pw_confirm" placeholder="비밀번호를 입력하세요."></td>
 		  				</tr>
 		  				<tr>
 		  					<th>이름 <span class="required">*</span></th>

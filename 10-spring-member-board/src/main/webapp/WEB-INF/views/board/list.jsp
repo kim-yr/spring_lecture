@@ -35,7 +35,7 @@
 								<c:if test="${boardDto.reStep > 1 }">
 									<span class="material-icons">subdirectory_arrow_right</span>
 								</c:if>
-								<a href="BoardView.do?no=${boardDto.no }&num=${boardDto.num}">${boardDto.subject }</a>
+								<a href="../board/View.do?no=${boardDto.no }&num=${boardDto.num}">${boardDto.subject }</a>
 							</td>
 							<td>${boardDto.email }</td>
 							<td>${boardDto.regDate }</td>

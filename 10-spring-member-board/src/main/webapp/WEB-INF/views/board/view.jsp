@@ -47,7 +47,7 @@
 							<a href="">이전글 없음</a>
 						</c:if>
 						<a
-							href="BoardView.do?no=${prevReplyBoardDto.no }&num=${prevReplyBoardDto.num}">${prevReplyBoardDto.subject }</a>
+							href="../board/View.do?no=${prevBoardDto.no }&num=${prevBoardDto.num}">${prevBoardDto.subject }</a>
 					</div>
 					<div class="item">
 						<span class="inner"> <span class="material-icons">keyboard_arrow_down</span>NEXT
@@ -56,23 +56,23 @@
 							<a href="">다음글 없음</a>
 						</c:if>
 						<a
-							href="BoardView.do?no=${nextReplyBoardDto.no }&num=${nextReplyBoardDto.num}">${nextReplyBoardDto.subject }</a>
+							href="../board/View.do?no=${nextBoardDto.no }&num=${nextBoardDto.num}">${nextBoardDto.subject }</a>
 					</div>
 				</div>
 
 				<!-- 삭제 수정이 내가 쓴 글에만 보이게... -->
 
 				<div class="btns">
-					<a href="BoardList.do" class="btn btnConfirm">글목록</a> <a
-						href="BoardWrite.do" class="btn btnConfirm">글쓰기</a> <a
-						href="BoardReplyWrite.do?no=${replyBoardDto.no }
+					<a href="../board/List.do" class="btn btnConfirm">글목록</a> <a
+						href="../board/Write.do" class="btn btnConfirm">글쓰기</a> <a
+						href="../board/ReplyWrite.do?no=${replyBoardDto.no }
 					&reGroup=${replyBoardDto.reGroup }
 					&reStep=${replyBoardDto.reStep }
 					&reLevel=${replyBoardDto.reLevel }"
 						class="btn btnConfirm">답글쓰기</a>
 					<c:if test="${replyBoardDto.id == loggedId }">
-						<a href="BoardDelete.do?no=${param.no }" class="btn btnConfirm">삭제</a>
-						<a href="BoardUpdate.do?no=${param.no }" class="btn btnConfirm">수정</a>
+						<a href="../board/Delete.do?no=${param.no }" class="btn btnConfirm">삭제</a>
+						<a href="../board/Update.do?no=${param.no }" class="btn btnConfirm">수정</a>
 					</c:if>
 
 				</div>

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alo0onge.mybatis.board">
 	<!-- 
-		원래는 resultType에 class 전체 경로를 써야 하는데 com.jjang051.model.MemberDto
-		번거러운 경우 TypeAlias를 통해 경로를 축약해서 쓸 수 있다. 
+		원래는 resultType에 class 전체 경로를 써야 하는데 com.alo0onge.model.MemberDto
+		번거로운 경우 TypeAlias를 통해 경로를 축약해서 쓸 수 있다. 
 	-->
 	<insert id="insertBoard" parameterType="ReplyBoardDto">
 		INSERT INTO REPLY_BOARD VALUES (SEQ_REPLYBOARD.NEXTVAL,

@@ -31,7 +31,7 @@
 	<header id="header">
 		<div class="inner">
 			<h1>
-				<a href="/">alo0onge</a>
+				<a href="">alo0onge</a>
 			</h1>
 			<nav id="gnb">
 				<h2 class="hidden">global navigation bar</h2>

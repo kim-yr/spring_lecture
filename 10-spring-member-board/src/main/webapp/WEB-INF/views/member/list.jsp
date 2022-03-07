@@ -38,7 +38,7 @@
 								<!-- <td>${memberDto.no }</td>  -->
 								
 								<td>${totalPage - (clickPage-1)*listPerPage - loop.index}</td>
-								<td><a href="MemberInfo.do?user_id=${memberDto.id }">${memberDto.id }</a></td>
+								<td><a href="../member/Info.do?user_id=${memberDto.id }">${memberDto.id }</a></td>
 								<td>${memberDto.name }</td>
 								<td>${memberDto.email }</td>
 								<td>${memberDto.phone }</td>

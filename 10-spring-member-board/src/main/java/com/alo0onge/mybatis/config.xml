@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<!-- <properties resource="com/jjang051/mybatis/db.properties" /> -->
+	<!-- <properties resource="com/alo0onge/mybatis/db.properties" /> -->
 	<typeAliases>
 		<!-- 별명 달기  Mapper 파일에 있는 resutlType과 연결된다.  -->
 		<typeAlias type="com.alo0onge.model.MemberDto" alias="MemberDto" />
@@ -19,8 +19,8 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/jjang051/mybatis/MemberMapper.xml" />
-		<mapper resource="com/jjang051/mybatis/BoardMapper.xml" />
+		<mapper resource="com/alo0onge/mybatis/MemberMapper.xml" />
+		<mapper resource="com/alo0onge/mybatis/BoardMapper.xml" />
 	</mappers> -->
 </configuration>
 

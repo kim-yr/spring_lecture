@@ -15,11 +15,11 @@
 		  			<tbody>
 		  				<tr>
 		  					<th>아이디 <span class="required">*</span></th>
-		  					<td><input type="text" name="user_id" id="user_id" placeholder="아이디를 입력하세요."></td>
+		  					<td><input type="text" name="id" id="user_id" placeholder="아이디를 입력하세요."></td>
 		  				</tr>
 		  				<tr>
 		  					<th>패스워드 <span class="required">*</span></th>
-		  					<td><input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력하세요."></td>
+		  					<td><input type="password" name="password" id="user_pw" placeholder="비밀번호를 입력하세요."></td>
 		  				</tr>
 		  			</tbody>
 		  		</table>
