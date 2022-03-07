@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alo0onge.mybatis.todo">
+	<!-- id는 TodoDao의 insert부분과 맞춰야 함 -->
+	<insert id="insertTodo" parameterType="TodoDto">
+		INSERT INTO TODO VALUES (SEQ_TODO.NEXTVAL,
+										#{todo},
+										#{done},
+										#{pickedDate}
+										)
+	</insert>
+	
+	<select id="getAllList" resultType="TodoDto" parameterType="String">
+		SELECT * FROM TODO WHERE PICKEDDATE = #{pickedDate} ORDER BY NO DESC
+	</select>
+</mapper>

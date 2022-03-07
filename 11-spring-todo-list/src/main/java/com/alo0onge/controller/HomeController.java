@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
-	
-	@RequestMapping(value="/", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-	//메소드 이름보다 매핑되는 주소가 중요!	
-		System.out.println("home controller 호출");
-		return "redirect:/List.do";
+		// 메소드 이름보다 매핑되는 주소가 중요!
+		return "index";
 	}
 }

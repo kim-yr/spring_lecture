@@ -4,7 +4,7 @@
 	<!-- <properties resource="com/alo0onge/mybatis/db.properties" /> -->
 	<typeAliases>
 		<!-- 별명 달기 Mapper 파일에 있는 resutlType과 연결된다. -->
-		<typeAlias type="com.alo0onge.model.TodoDto" alias="TOdoDto" />
+		<typeAlias type="com.alo0onge.model.TodoDto" alias="TodoDto" />
 	</typeAliases>
 </configuration>
 
