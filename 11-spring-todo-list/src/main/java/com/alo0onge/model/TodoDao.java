@@ -22,7 +22,7 @@ public class TodoDao {
 	public List<TodoDto> getAllList(String pickedDate){
 		List<TodoDto> todoList = null;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		todoList = sqlSession.selectList("getAllList", pickedDate);
+		todoList = sqlSession.selectList("getAllList", pickedDate); //이건 mapper에 같은 이름의 쿼리스트링이 있어야 함
 		sqlSession.close();
 		return todoList;
 	}
