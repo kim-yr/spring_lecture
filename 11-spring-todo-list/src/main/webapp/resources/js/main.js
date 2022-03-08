@@ -1,9 +1,10 @@
 const dateUL = document.querySelector(".calendar .dates ul");
 
+const dayList = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
 const now = new Date(); // 오늘 날짜...
 let pickedNow = new Date(); // 클릭했을때 넘어갈 날짜...
 let firstDay = new Date(now.getFullYear(), now.getMonth(), 1); // 현재 날짜의 월에서 1일을 기준으로 새로운 date 생성
-
 const leapYear = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // 윤년
 const nonLeapYear = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // 윤년아님
 let selectYear;
@@ -48,6 +49,8 @@ function makeCalendar(pYear, pMonth) {
 		selectYear = leapYear;
 	}
 	queryDate = firstDay.getFullYear() + "" + addZero(firstDay.getMonth() + 1) + "" + addZero(firstDay.getDate());
+	$("#pickedDate").text(addZero(now.getDate()));
+	$("#pickedDay").text(dayList[now.getDay()]);
 	for (let i = 0; i < 42; i++) {
 		if (i < firstDay.getDay()) {
 			//비워두기
@@ -86,9 +89,16 @@ function makeCalendar(pYear, pMonth) {
 /*$("body").on("click", "li")*/
 $("body").on("click", ".calendar .dates li", function()  {//이벤트 위임 해줘야 함
 	const selectDay = $(this).data("year") + addZero($(this).data("month")) + addZero($(this).data("date"));
-	console.log(selectDay);
+	/*console.log(selectDay);*/
 	queryDate = selectDay;
 	$(this).addClass("on").siblings().removeClass("on");
+
+	const clickNow = new Date($(this).data("year"), parseInt($(this).data("month")) - 1, $(this).data("date")); //클릭한 날짜 기준으로 Date객체 생성
+	$("#pickedDate").text(addZero(clickNow.getDate()));
+	$("#pickedDay").text(dayList[clickNow.getDay()]);
+	console.log(clickNow.getDay());
+	console.log(clickNow.getDate());
+
 	const sendData = {
 		pickedDate: queryDate,
 	};
@@ -98,13 +108,13 @@ $("body").on("click", ".calendar .dates li", function()  {//이벤트 위임 해
 		contentType: "application/json",
 		dataType: "json",
 		method: "POST",
-		success: function(res){
+		success: function(res) {
 			$(".todoList").html("");
 			$.each(res.todoList, function(idx, item) {
 				//todoList: hashMap으로 단 key값이 넘어오는 것
 				$(".todoList").append(`
 				 <li data-no="${item.no}" class="${item.done}">
-				 	<span>${item.todo}</span>
+				 	<span class="txt">${item.todo}</span>
 					<button class="btnDelete">
 						<span class="material-icons"> delete </span>
 					</button>
@@ -112,10 +122,10 @@ $("body").on("click", ".calendar .dates li", function()  {//이벤트 위임 해
 				`);
 			});
 		},
-		error: function(err){
+		error: function(err) {
 			console.log(err);
 		}
-		
+
 	})
 });
 function addZero(num) {
@@ -145,7 +155,7 @@ $(".todo .btnAdd").on("click", function() {
 				//todoList: hashMap으로 단 key값이 넘어오는 것
 				$(".todoList").append(`
 				 <li data-no="${item.no}" class="${item.done}">
-				 	<span>${item.todo}</span>
+				 	<span class="txt">${item.todo}</span>
 					<button class="btnDelete">
 						<span class="material-icons"> delete </span>
 					</button>
@@ -160,5 +170,68 @@ $(".todo .btnAdd").on("click", function() {
 		},
 	});
 });
-$(".todo .todoList").on("click", ".btnDelete", () => {
+$("body").on("click", ".todoList li .txt", function() {
+	//console.log("곱창");
+	const clickedItem = $(this).parent();
+	let state = "";
+	if (clickedItem.hasClass("done")) {
+		state = "none";
+	} else {
+		state = "done";
+	}
+
+	const sendData = {
+		no: $(this).parent().data("no"),
+		done: state,
+	};
+
+	$.ajax({
+		url: "Update.do",
+		data: JSON.stringify(sendData),
+		contentType: "application/json", //보내는 데이터의 타입
+		dataType: "json", //받는 데이터 타입
+		method: "POST",
+		success: function(res) {
+			console.log(res); //{result: 1}
+			if (res.result > 0) {
+				if (clickedItem.hasClass("none")) {
+					clickedItem.removeClass("none").addClass("done");
+				} else {
+					clickedItem.removeClass("done").addClass("none");
+				}
+			}
+		},
+		error: function(err) {
+			console.log(err);
+		},
+	});
+
+});
+$("body").on("click", ".todoList li .btnDelete", function() {
+	console.log($(this).parent().data("no"));
+	const clickedItem = $(this).parent();
+	const sendData = {
+		no: $(this).parent().data("no"),
+	};
+	$.ajax({
+		url: "Delete.do",
+		data: JSON.stringify(sendData),
+		contentType: "application/json", //보내는 데이터의 타입
+		dataType: "json", //받는 데이터 타입
+		method: "POST",
+		success: function(res) {
+			console.log(res); //{result: 1}
+			if (res.result > 0) {
+				//여기서는 $(this) 못 씀. ajax 자신을 가리키는 꼴
+				gsap.to(clickedItem, {
+					x: -500, ease: "power3", onComplete: function() {
+						clickedItem.remove();
+					}
+				})
+			}
+		},
+		error: function(err) {
+			console.log(err);
+		},
+	});
 });

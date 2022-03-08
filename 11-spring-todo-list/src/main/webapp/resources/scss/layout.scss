@@ -75,6 +75,24 @@ button {
       padding-bottom: 5px;
       margin-bottom: 5px;
       border-bottom: 1px solid #fff;
+      padding-left: 15px;
+      position: relative;
+      &.done:before {
+        width: calc(100% - 25px);
+      }
+      &:before {
+        content: "";
+        display: block;
+        width: 3px;
+        height: 25px;
+        background-color: rgba(90, 106, 194, 0.5);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        pointer-events: none;
+        transform: translateY(-60%);
+        transition: all 0.25s ease;
+      }
       .btnDelete {
         color: #fff;
       }

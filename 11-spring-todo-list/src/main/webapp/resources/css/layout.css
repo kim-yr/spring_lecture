@@ -24,7 +24,11 @@ button { background: none; border: none; padding: 0; outline: none; }
 
 .todo .todoList { color: #fff; padding: 10px; font-size: 14px; }
 
-.todo .todoList li { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-bottom: 5px; margin-bottom: 5px; border-bottom: 1px solid #fff; }
+.todo .todoList li { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-bottom: 5px; margin-bottom: 5px; border-bottom: 1px solid #fff; padding-left: 15px; position: relative; }
+
+.todo .todoList li.done:before { width: calc(100% - 25px); }
+
+.todo .todoList li:before { content: ""; display: block; width: 3px; height: 25px; background-color: rgba(90, 106, 194, 0.5); position: absolute; left: 0; top: 50%; pointer-events: none; -webkit-transform: translateY(-60%); transform: translateY(-60%); -webkit-transition: all 0.25s ease; transition: all 0.25s ease; }
 
 .todo .todoList li .btnDelete { color: #fff; }
 

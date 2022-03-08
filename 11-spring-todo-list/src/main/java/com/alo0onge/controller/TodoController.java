@@ -36,6 +36,7 @@ public class TodoController {
 		}
 		return hashMap; //hashmap리턴해도 되고 list리턴 해도 됨, 단 리스트 떨구면 자바스크립트에서 foreach문에 res 바로 쓰면 됨
 	}
+	
 	@RequestMapping("/List.do")
 	@ResponseBody
 	public Map<String, Object> getTodoList(@RequestBody TodoDto todoDto){
@@ -43,6 +44,25 @@ public class TodoController {
 		String pickedDate = todoDto.getPickedDate();
 		List<TodoDto> todoList = todoDao.getAllList(pickedDate); //해당 날짜 리스트 뽑아서 던져주기
 		hashMap.put("todoList", todoList);
+		return  hashMap;
+	}
+	
+	@RequestMapping("/Delete.do")
+	@ResponseBody
+	public Map<String, Object> deleteTodo(@RequestBody TodoDto todoDto){
+		Map<String, Object> hashMap = new HashMap<>();
+		int no = todoDto.getNo();
+		int result = todoDao.deleteTodo(no);
+		hashMap.put("result", result); //ex. {result: 1}
+		return  hashMap;
+	}
+	
+	@RequestMapping("/Update.do")
+	@ResponseBody
+	public Map<String, Object> updateTodo(@RequestBody TodoDto todoDto){
+		Map<String, Object> hashMap = new HashMap<>();
+		int result = todoDao.updateTodo(todoDto);
+		hashMap.put("result", result); //ex. {result: 1}
 		return  hashMap;
 	}
 }

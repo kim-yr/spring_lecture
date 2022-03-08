@@ -19,6 +19,24 @@ public class TodoDao {
 		return result;
 	}
 	
+	public int deleteTodo(int no) {
+		int result = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		result = sqlSession.delete("deleteTodo", no);
+		sqlSession.commit();
+		sqlSession.close();
+		return result;
+	}
+	
+	public int updateTodo(TodoDto todoDto) {
+		int result = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		result = sqlSession.update("updateTodo", todoDto);
+		sqlSession.commit();
+		sqlSession.close();
+		return result;
+	}
+	
 	public List<TodoDto> getAllList(String pickedDate){
 		List<TodoDto> todoList = null;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
