@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학 생 관 리</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/inner.css" />
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/main.js" defer></script>
+  </head>
+  <body>
+    <header id="header"></header>
+    <main id="main">
+      <div class="contents">
+        <div class="title">
+          <h1>원생 관리</h1>
+        </div>
+        <div class="inner">
+          <div class="searchBox">
+            <form action="" method="post">
+              <label class="positionBox">
+                <span>분류</span>
+                <select name="position" id="position">
+                  <option value="all">전체</option>
+                  <option value="element">초등학생</option>
+                  <option value="middle">중학생</option>
+                  <option value="high">고등학생</option>
+                  <option value="teacher">선생님</option>
+                  <option value="driver">기사님</option>
+                </select>
+              </label>
+              <label class="schoolYearBox">
+                <span>학년</span>
+                <select name="schoolYear" id="schoolYear">
+                  <option value="all">전체</option>
+                  <option value="first">1학년</option>
+                  <option value="first">2학년</option>
+                  <option value="first">3학년</option>
+                </select>
+              </label>
+              <label class="schoolYearBox">
+                <span>반</span>
+                <select name="schoolYear" id="schoolYear">
+                  <option value="all">전체</option>
+                  <option value="first">월수반</option>
+                  <option value="first">화금반</option>
+                  <option value="first">주말반</option>
+                </select>
+              </label>
+              <label class="nameBox">
+                <span>이름</span>
+                <input type="text" name="name" id="name" />
+              </label>
+              <button class="btn" type="submit"><span class="material-icons"> search </span></button>
+            </form>
+          </div>
+          <div class="viewer">
+            <table>
+              <colgroup>
+                <col style="width: 5%" />
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+                <col style="width: 18%" />
+                <col style="width: 18%" />
+                <col style="width: 11%" />
+                <col style="width: 8%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th><input type="checkbox" name="allSelected" id="allSelected" /></th>
+                  <th>이름</th>
+                  <th>학교</th>
+                  <th>학년</th>
+                  <th>반</th>
+                  <th>학생 전화번호</th>
+                  <th>보호자 전화번호</th>
+                  <th>담당 선생님</th>
+                  <th>등록일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--                
+                <tr>
+                  <td><input type="checkbox" name="selected" id="selected" /></td>
+                  <td>송혜원</td>
+                  <td>진명여고</td>
+                  <td>1학년</td>
+                  <td>17반</td>
+                  <td>010-0000-0000</td>
+                  <td>010-1111-1111</td>
+                  <td>김예령</td>
+                  <td>22일</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="btns">
+          <a href="" class="btn delete">삭 제</a>
+          <a href="studentCreate.html" class="btn create">신규 등록</a>
+        </div>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li class="on"><a href="studentManagement.html">원생 관리</a></li>
+          <li><a href="">경영 관리</a></li>
+        </ul>
+      </div>
+    </main>
+    <footer id="footer">
+      <p>Copyright All rights reserved 문어의꿈.</p>
+    </footer>
+  </body>
+</html>

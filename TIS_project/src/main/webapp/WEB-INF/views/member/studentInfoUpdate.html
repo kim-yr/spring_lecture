@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학 생 관 리</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/inner.css" />
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/main.js" defer></script>
+  </head>
+  <body>
+    <header id="header"></header>
+    <main id="main">
+      <div class="contents">
+        <div class="title">
+          <h1>원생 정보</h1>
+        </div>
+        <form action="">
+          <div class="inner">
+            <div class="info">
+              <table>
+                <colgroup>
+                  <col style="width: 20%" />
+                  <col style="width: 30%" />
+                  <col style="width: 20%" />
+                  <col style="width: 30%" />
+                </colgroup>
+                <tr>
+                  <th>이름</th>
+                  <td><input type="text" name="name" id="name" /></td>
+                  <th>학교</th>
+                  <td>
+                    <input type="text" name="name" id="name" />
+                    <select name="position" id="position">
+                      <option value="all">선택</option>
+                      <option value="element">초등학생</option>
+                      <option value="middle">중학생</option>
+                      <option value="high">고등학생</option>
+                      <option value="teacher">선생님</option>
+                      <option value="driver">기사님</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>학년</th>
+                  <td>
+                    <select name="schoolYear" id="schoolYear">
+                      <option value="all">선택</option>
+                      <option value="first">1학년</option>
+                      <option value="first">2학년</option>
+                      <option value="first">3학년</option>
+                    </select>
+                  </td>
+                  <th>반</th>
+                  <td>
+                    <select name="schoolYear" id="schoolYear">
+                      <option value="all">선택</option>
+                      <option value="first">월수반</option>
+                      <option value="first">화금반</option>
+                      <option value="first">주말반</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>담당 선생님</th>
+                  <td>
+                    <select name="schoolYear" id="schoolYear">
+                      <option value="all">선택</option>
+                      <option value="first">장성호 선생님</option>
+                      <option value="first">나미리 선생님</option>
+                      <option value="first">채성아 선생님</option>
+                    </select>
+                  </td>
+                  <th>등록일</th>
+                  <td><input type="date" name="regdate" id="regdate" /></td>
+                </tr>
+                <tr>
+                  <th>전화번호</th>
+                  <td>
+                    <select name="schoolYear" id="schoolYear" class="phone short">
+                      <option value="all">010</option>
+                      <option value="first">011</option>
+                      <option value="first">012</option>
+                      <option value="first">02</option>
+                    </select>
+                    - <input type="number" name="name" id="name" class="phone" /> - <input type="number" name="name" id="name" class="phone" />
+                  </td>
+                  <th>보호자 연락처</th>
+                  <td>
+                    <select name="schoolYear" id="schoolYear" class="phone short">
+                      <option value="all">010</option>
+                      <option value="first">011</option>
+                      <option value="first">012</option>
+                      <option value="first">02</option>
+                    </select>
+                    - <input type="number" name="name" id="name" class="phone" /> - <input type="number" name="name" id="name" class="phone" />
+                  </td>
+                </tr>
+                <tr>
+                  <th class="memo">메모</th>
+                  <td colspan="3"><textarea name="" id="" cols="130" rows="10"></textarea></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="btns">
+            <a href="studentInfo.html?name=신짱구" class="btn">뒤로 가기</a>
+            <button type="submit" class="btn submit">정보 수정</button>
+          </div>
+        </form>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li class="on"><a href="studentManagement.html">원생 관리</a></li>
+          <li><a href="">경영 관리</a></li>
+        </ul>
+      </div>
+    </main>
+    <footer id="footer">
+      <p>Copyright All rights reserved 문어의꿈.</p>
+    </footer>
+  </body>
+</html>

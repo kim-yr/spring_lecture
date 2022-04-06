@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tis.mybatis.member">
+	<select id="getAllMemberList" resultType="MemberDto"
+		parameterType="HashMap">
+		SELECT * FROM
+		(SELECT ROWNUM AS NUM,B.* FROM
+		(SELECT * FROM MEMBER
+		<if test="searchWord!=null and searchWord!=''">
+			WHERE ${searchSelect} LIKE '%'||#{searchWord}||'%'
+		</if>
+		ORDER BY NO DESC
+		) B
+		)
+		WHERE NUM BETWEEN #{start} AND #{end}
+	</select>
+	<select id="getSelectOne" resultType="MemberDto"
+		parameterType="String">
+		SELECT * FROM MEMBER WHERE CODE = #{code}
+	</select>
+	<delete id="deleteMember" parameterType="MemberDto">
+		DELETE FROM MEMBER WHERE
+		CODE = #{code} AND NAME = #{name}
+	</delete>
+
+	<insert id="insertMember" parameterType="MemberDto">
+		INSERT INTO MEMBER
+		VALUES (SEQ_MEMBER.NEXTVAL,
+		#{id},
+		#{password},
+		#{name},
+		#{code},
+		#{subject},
+		#{tell},
+		#{email},
+		#{regDate}
+		)
+	</insert>
+	<update id="updateMember" parameterType="MemberDto">
+		UPDATE MEMBER SET
+		NAME = #{name}, 
+		SUBJECT = #{subject},
+		TELL = #{tell},
+		EMAIL = #{email},
+		REGDATE = #{regDate}
+		WHERE CODE = #{code}
+	</update>
+	<select id="getTotal" resultType="Integer"
+		parameterType="HashMap">
+		SELECT COUNT(*) AS TOTAL FROM MEMBER
+		<if test="searchWord!=null and searchWord!=''">
+			WHERE
+			${searchSelect} LIKE '%'||#{searchWord}||'%'
+		</if>
+	</select>
+</mapper>

@@ -6,7 +6,6 @@
 	      <h2 class="subTitle">회원정보 수정</h2>
 		  <div id="contents">
 		  	<!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
-		  	<!-- memberDto의 속성이랑 name이랑 mapping되어야 함 -->
 		  	<form method="POST" action="../member/UpdateProcess.do" id="join" class="form">
 		  		<table class="left">
 		  			<colgroup>
