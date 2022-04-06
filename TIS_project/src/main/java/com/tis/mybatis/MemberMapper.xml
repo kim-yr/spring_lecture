@@ -3,20 +3,53 @@
 <mapper namespace="com.tis.mybatis.member">
 	<select id="getAllMemberList" resultType="MemberDto"
 		parameterType="HashMap">
-		SELECT NO, NAME, ID, SUBJECT, TELL, EMAIL, REGDATE FROM MEMBER
-		WHERE NO IS NOT NULL
-		<if
-			test="search_position!=null and search_position!=''">
-			AND CODE LIKE '#{searchPosition}%'
-		</if>
-		<if
-			test="search_subject!=null and search_subject!=''">
-			AND SUBJECT = '#{searchSubject}'
-		</if>
-		<if
-			test="search_name!=null and search_name!=''">
-			AND NAME LIKE '%#{searchName}%'
-		</if>
+		SELECT * FROM MEMBER
+		<choose>
+			<when test="searchPosition==null and searchSubject==null and (searchName==null or searchName=='')">
+			</when>
+			<otherwise>
+				WHERE
+				<choose>
+					<!-- 포지션 값이 있다면 -->
+					<when test="searchPosition!=null and searchPosition!=''">
+						CODE LIKE #{searchPosition} || '%'
+						<choose>
+							<!-- 과목 값이 있다면 -->
+							<when test="searchSubject!=null and searchSubject!=''">
+								AND SUBJECT = #{searchSubject}
+								<if test="searchName!=null and searchName!=''">
+									AND NAME LIKE '%' || #{searchName} || '%'
+								</if>
+							</when>
+							<!-- 과목 값이 없다면 -->
+							<otherwise>
+								<if test="searchName!=null and searchName!=''">
+									AND NAME LIKE '%' || #{searchName} || '%'
+								</if>
+							</otherwise>
+						</choose>
+					</when>
+					<!-- 포지션 값이 없다면 -->
+					<otherwise>
+						<choose>
+							<!-- 과목 값이 있다면 -->
+							<when test="searchSubject!=null and searchSubject!=''">
+								SUBJECT = #{searchSubject}
+								<if test="searchName!=null and searchName!=''">
+									AND NAME LIKE '%' || #{searchName} || '%'
+								</if>
+							</when>
+							<!-- 과목 값이 없다면 -->
+							<otherwise>
+								<if test="searchName!=null and searchName!=''">
+									NAME LIKE '%' || #{searchName} || '%'
+								</if>
+							</otherwise>
+						</choose>
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
 		ORDER BY NO DESC
 	</select>
 	<select id="getSelectOne" resultType="MemberDto"

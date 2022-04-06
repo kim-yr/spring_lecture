@@ -19,15 +19,10 @@ public class MemberDao implements MemberService {
 		pageMap.put("search_position", search_position);
 		pageMap.put("search_subject", search_subject);
 		pageMap.put("search_name", search_name);
-
 		List<MemberDto> memberList = null;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		memberList = sqlSession.selectList("getAllMemberList", pageMap);
 		sqlSession.close();
-		MemberDto md = new MemberDto();
-		md = memberList.get(0);
-		System.out.println("얍=="+md.toString());
-		System.out.println("얍=="+memberList);
 		return memberList;
 	}
 

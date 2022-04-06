@@ -1,4 +1,4 @@
-
+/*
 for (let i = 0; i < 30; i++) {
 	const data = `
   <tr>
@@ -14,3 +14,4 @@ for (let i = 0; i < 30; i++) {
   `;
 	$(".viewer table tbody").append(data);
 }
+*/

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
+
+
 <main id="main">
 	<div class="contents">
 		<div class="title">
@@ -12,17 +14,15 @@
 			<div class="searchBox">
 				<form action="../member/List.do" method="GET">
 					<label class="positionBox"> <span>분류</span> <select
-						name="search_position" id="position"
-						value="${param.search_position }">
-							<option value="all">전체</option>
+						name="search_position" id="position">
+							<option value=null>전체</option>
 							<option value="S">원생</option>
 							<option value="T">강사</option>
 							<option value="F">직원</option>
 					</select>
 					</label> <label class="subjectBox"> <span>과목</span> <select
-						name="search_subject" id="search_subject"
-						value="${param.search_subject }">
-							<option value="all">전체</option>
+						name="search_subject" id="search_subject">
+							<option value=null>전체</option>
 							<option value="first">1강의실: 프론트엔드 개발자 양성과정</option>
 							<option value="second">2강의실: 백엔드 개발자 양성과정</option>
 							<option value="third">3강의실: 풀스택 개발자 양성과정</option>
@@ -65,16 +65,17 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${memberList}" var="memberDto">
+							<fmt:parseDate value="${memberDto.regDate }" var="convertDate"
+								pattern="yyyy-MM-dd HH:mm:ss" />
 							<tr>
-								<td><input type="checkbox" name="selected"
-									id="selected" /></td>
+								<td><input type="checkbox" name="selected" id="selected" /></td>
 								<td>${memberDto.no }</td>
 								<td>${memberDto.name }</td>
 								<td><a href="../member/Info.do?user_id=${memberDto.id }">${memberDto.id }</a></td>
 								<td>${memberDto.subject }</td>
 								<td>${memberDto.tell }</td>
 								<td>${memberDto.email }</td>
-								<td><fmt:formatDate value="${memberDto.regDate }" pattern="MM-dd" /></td>
+								<td><fmt:formatDate value="${convertDate }" pattern="MM/dd" /></td>
 							</tr>
 						</c:forEach>
 					</tbody>

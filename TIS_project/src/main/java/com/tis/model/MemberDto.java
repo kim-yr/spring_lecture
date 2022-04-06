@@ -1,5 +1,6 @@
 package com.tis.model;
 
+
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
