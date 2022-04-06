@@ -4,93 +4,49 @@
 	<select id="getAllMemberList" resultType="MemberDto"
 		parameterType="HashMap">
 		SELECT * FROM MEMBER
+
 		<choose>
-			<when test="searchPosition==null and searchSubject==null and (searchName==null or searchName=='')">
+			<when
+				test="searchPosition == null and searchSubject == null and (searchName == null or searchName == '')">
 			</when>
 			<otherwise>
 				WHERE
 				<choose>
-					<!-- 포지션 값이 있다면 -->
-					<when test="searchPosition!=null and searchPosition!=''">
+					<when test="searchPosition != null and searchPosition != ''">
 						CODE LIKE #{searchPosition} || '%'
 						<choose>
-							<!-- 과목 값이 있다면 -->
-							<when test="searchSubject!=null and searchSubject!=''">
+
+							<when test="searchSubject != null and searchSubject != ''">
 								AND SUBJECT = #{searchSubject}
-								<if test="searchName!=null and searchName!=''">
-									AND NAME LIKE '%' || #{searchName} || '%'
-								</if>
+								<if test="searchName != null and searchName != ''"> AND NAME LIKE '%' || #{searchName} || '%' </if>
 							</when>
-							<!-- 과목 값이 없다면 -->
+
 							<otherwise>
-								<if test="searchName!=null and searchName!=''">
-									AND NAME LIKE '%' || #{searchName} || '%'
-								</if>
+								<if test="searchName != null and searchName != ''"> AND
+									NAME LIKE '%' || #{searchName} || '%' </if>
 							</otherwise>
 						</choose>
 					</when>
-					<!-- 포지션 값이 없다면 -->
+
 					<otherwise>
 						<choose>
-							<!-- 과목 값이 있다면 -->
-							<when test="searchSubject!=null and searchSubject!=''">
+
+							<when test="searchSubject != null and searchSubject != ''">
 								SUBJECT = #{searchSubject}
-								<if test="searchName!=null and searchName!=''">
+								<if test="searchName != null and searchName != ''">
 									AND NAME LIKE '%' || #{searchName} || '%'
 								</if>
 							</when>
-							<!-- 과목 값이 없다면 -->
+
 							<otherwise>
-								<if test="searchName!=null and searchName!=''">
-									NAME LIKE '%' || #{searchName} || '%'
-								</if>
+								<if test="searchName != null and searchName != ''"> NAME
+									LIKE '%' || #{searchName} || '%' </if>
 							</otherwise>
 						</choose>
 					</otherwise>
 				</choose>
 			</otherwise>
 		</choose>
-		ORDER BY NO DESC
-	</select>
-	<select id="getSelectOne" resultType="MemberDto"
-		parameterType="String">
-		SELECT * FROM MEMBER WHERE CODE = #{code}
-	</select>
-	<delete id="deleteMember" parameterType="MemberDto">
-		DELETE FROM MEMBER WHERE
-		CODE = #{code} AND NAME = #{name}
-	</delete>
-
-	<insert id="insertMember" parameterType="MemberDto">
-		INSERT INTO MEMBER
-		VALUES (SEQ_MEMBER.NEXTVAL,
-		#{id},
-		#{password},
-		#{name},
-		#{code},
-		#{subject},
-		#{tell},
-		#{email},
-		#{regDate}
-		)
-	</insert>
-	<update id="updateMember" parameterType="MemberDto">
-		UPDATE MEMBER SET
-		NAME =
-		#{name},
-		SUBJECT = #{subject},
-		TELL = #{tell},
-		EMAIL = #{email},
-		REGDATE =
-		#{regDate}
-		WHERE CODE = #{code}
-	</update>
-	<select id="getTotal" resultType="Integer"
-		parameterType="HashMap">
-		SELECT COUNT(*) AS TOTAL FROM MEMBER
-		<if test="searchWord!=null and searchWord!=''">
-			WHERE
-			${searchSelect} LIKE '%'||#{searchWord}||'%'
-		</if>
+		ORDER BY NO ASC
 	</select>
 </mapper>

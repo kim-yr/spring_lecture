@@ -7,7 +7,6 @@ INDEX VERSION 1.4+C:\Users\USER\Desktop\java-ryeong\spring_lecture\.metadata\.pl
 3152665238.index
 2225279691.index
 3055522301.index
-401230991.index
 3936624511.index
 1173050592.index
 988664519.index
