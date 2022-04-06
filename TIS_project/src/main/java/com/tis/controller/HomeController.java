@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home() {
-		System.out.println("home controller 호출->member/management 이동");
+		System.out.println("home controller 호출->member/list 이동");
 //		return "/index";
-		return "redirect:/member/Management.do";
+		return "redirect:/member/List.do";
 	}
 }
