@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,7 @@ public class MemberController {
 		String search_subject = request.getParameter("search_subject");
 		String search_name = request.getParameter("search_name");
 		List<MemberDto> memberList = memberDao.getAllMemberList(search_position, search_subject, search_name);
-
+	
 		System.out.println(search_position+"/"+search_subject+"/"+search_name);
 		for (MemberDto md : memberList) {
 			System.out.println(md.toString());

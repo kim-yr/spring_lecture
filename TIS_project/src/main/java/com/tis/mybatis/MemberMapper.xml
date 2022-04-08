@@ -3,55 +3,11 @@
 <mapper namespace="com.tis.mybatis.member">
 	<select id="getAllMemberList" resultType="MemberDto"
 		parameterType="HashMap">
-		SELECT * FROM MEMBER
-		<choose>
-			<when test="searchPosition==null and searchSubject==null and (searchName==null or searchName=='')">
-			</when>
-			<otherwise>
-				WHERE
-				<choose>
-					<!-- 포지션 값이 있다면 -->
-					<when test="searchPosition!=null and searchPosition!=''">
-						CODE LIKE #{searchPosition} || '%'
-						<choose>
-							<!-- 과목 값이 있다면 -->
-							<when test="searchSubject!=null and searchSubject!=''">
-								AND SUBJECT = #{searchSubject}
-								<if test="searchName!=null and searchName!=''">
-									AND NAME LIKE '%' || #{searchName} || '%'
-								</if>
-							</when>
-							<!-- 과목 값이 없다면 -->
-							<otherwise>
-								<if test="searchName!=null and searchName!=''">
-									AND NAME LIKE '%' || #{searchName} || '%'
-								</if>
-							</otherwise>
-						</choose>
-					</when>
-					<!-- 포지션 값이 없다면 -->
-					<otherwise>
-						<choose>
-							<!-- 과목 값이 있다면 -->
-							<when test="searchSubject!=null and searchSubject!=''">
-								SUBJECT = #{searchSubject}
-								<if test="searchName!=null and searchName!=''">
-									AND NAME LIKE '%' || #{searchName} || '%'
-								</if>
-							</when>
-							<!-- 과목 값이 없다면 -->
-							<otherwise>
-								<if test="searchName!=null and searchName!=''">
-									NAME LIKE '%' || #{searchName} || '%'
-								</if>
-							</otherwise>
-						</choose>
-					</otherwise>
-				</choose>
-			</otherwise>
-		</choose>
-		ORDER BY NO DESC
+		SELECT * FROM MEMBER WHERE CODE LIKE #{searchPosition} || '%'
+		ORDER BY NO ASC
 	</select>
+
+
 	<select id="getSelectOne" resultType="MemberDto"
 		parameterType="String">
 		SELECT * FROM MEMBER WHERE CODE = #{code}

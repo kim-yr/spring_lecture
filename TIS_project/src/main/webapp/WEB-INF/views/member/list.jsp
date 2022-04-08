@@ -7,7 +7,7 @@
 	<div class="contents">
 		<div class="title">
 			<h1>
-				<a href="Management.do">원생 관리</a>
+				<a href="List.do">원생 관리</a>
 			</h1>
 		</div>
 		<div class="inner">
