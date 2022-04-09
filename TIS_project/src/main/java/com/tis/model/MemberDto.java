@@ -17,8 +17,12 @@ public class MemberDto {
 	private String password;
 	private String name;
 	private String code;
+	private String position;
 	private String subject;
 	private String tell;
+	private String tellFirst;
+	private String tellMiddle;
+	private String tellLast;
 	private String email;
 	private String regDate;
 }

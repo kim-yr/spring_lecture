@@ -3,23 +3,15 @@
 <mapper namespace="com.tis.mybatis.member">
 	<select id="getAllMemberList" resultType="MemberDto"
 		parameterType="HashMap">
-		SELECT * FROM MEMBER WHERE CODE LIKE #{searchPosition} || '%'
+		SELECT * FROM MEMBER WHERE CODE LIKE #{searchPosition}
+		|| '%'
 		ORDER BY NO ASC
 	</select>
-
-
-	<select id="getSelectOne" resultType="MemberDto"
-		parameterType="String">
-		SELECT * FROM MEMBER WHERE CODE = #{code}
-	</select>
-	<delete id="deleteMember" parameterType="MemberDto">
-		DELETE FROM MEMBER WHERE
-		CODE = #{code} AND NAME = #{name}
-	</delete>
-
+	
 	<insert id="insertMember" parameterType="MemberDto">
 		INSERT INTO MEMBER
-		VALUES (SEQ_MEMBER.NEXTVAL,
+		VALUES (
+		SEQ_MEMBER.NEXTVAL,
 		#{id},
 		#{password},
 		#{name},
@@ -30,6 +22,18 @@
 		#{regDate}
 		)
 	</insert>
+
+	<select id="getMemberSelectOne" resultType="MemberDto"
+		parameterType="String">
+		SELECT * FROM MEMBER WHERE CODE = 'S1234'
+	</select>
+	
+	<delete id="deleteMember" parameterType="MemberDto">
+		DELETE FROM MEMBER WHERE
+		CODE = #{code} AND NAME = #{name}
+	</delete>
+
+
 	<update id="updateMember" parameterType="MemberDto">
 		UPDATE MEMBER SET
 		NAME =
@@ -41,6 +45,7 @@
 		#{regDate}
 		WHERE CODE = #{code}
 	</update>
+	
 	<select id="getTotal" resultType="Integer"
 		parameterType="HashMap">
 		SELECT COUNT(*) AS TOTAL FROM MEMBER

@@ -111,46 +111,53 @@
 
 .info {
   width: 100%;
-  height: 100%;
-  padding-top: 20px;
+  height: calc(100% - 105px);
+  padding-top: 30px;
   table {
     width: 100%;
-    height: 100%;
+    // height: 100%;
     border-collapse: collapse;
+    border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     tr {
-      th,
-      td {
-        border-top: 1px solid #ccc;
+      // border-top: 1px solid #ccc;
+      &:nth-child(2n-1) {
+        background-color: rgb(245, 245, 245);
+      }
+      td,
+      th {
+        height: 55px;
       }
       th {
-        padding: 15px;
+        // padding: calc((55px - 16px) / 2) 0;
         font-size: 16px;
-        background-color: rgb(245, 245, 245);
+        // background-color: rgb(245, 245, 245);
         font-weight: 700;
-        text-align: center;
-        &.memo {
-          vertical-align: middle;
-        }
+        // text-align: center;
+        @include flexCenter();
       }
+
       td {
-        height: 10%;
-        padding-left: 30px;
+        padding: 10px 30px 10px 30px;
         vertical-align: middle;
         input,
         select {
-          border: 1px solid #ccc;
+          text-align: center;
+          border: none;
+          border-bottom: 1px solid #ccc;
+          background-color: transparent;
           height: 30px;
-          width: 150px;
+          width: 100%;
           padding: 5px;
-          border-radius: 0;
+          outline: none;
         }
-        input.phone,
-        select.phone {
-          width: 100px;
+        input.tell,
+        select.tell {
+          width: 200px;
         }
         select.short {
-          width: 70px;
+          width: 150px;
+          text-align: center;
         }
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {

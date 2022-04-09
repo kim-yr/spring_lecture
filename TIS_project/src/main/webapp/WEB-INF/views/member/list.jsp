@@ -70,8 +70,8 @@
 							<tr>
 								<td><input type="checkbox" name="selected" id="selected" /></td>
 								<td>${memberDto.no }</td>
-								<td>${memberDto.name }</td>
-								<td><a href="../member/Info.do?user_id=${memberDto.id }">${memberDto.id }</a></td>
+								<td><a href="../member/Info.do?code=${memberDto.code }">${memberDto.name }</a></td>
+								<td>${memberDto.id }</td>
 								<td>${memberDto.subject }</td>
 								<td>${memberDto.tell }</td>
 								<td>${memberDto.email }</td>
@@ -83,13 +83,13 @@
 			</div>
 		</div>
 		<div class="btns">
-			<a href="" class="btn delete">삭 제</a> <a href="studentCreate.html"
-				class="btn create">신규 등록</a>
+			<a href="DeleteProcess.do" class="btn delete">삭 제</a> 
+			<a href="Create.do"	class="btn create">신규 등록</a>
 		</div>
 	</div>
-	<!-- <div class="sidebar">
+<!-- 	<div class="sidebar">
 		<ul>
-			<li class="on"><a href="Management.do">원생 관리</a></li>
+			<li><a href="Create.do">신규 등록</a></li>
 			<li><a href="">경영 관리</a></li>
 		</ul>
 	</div> -->

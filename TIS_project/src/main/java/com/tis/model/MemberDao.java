@@ -27,6 +27,16 @@ public class MemberDao implements MemberService {
 	}
 
 	@Override
+	public int insertMember(MemberDto memberDto) {
+		int result = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		result = sqlSession.insert("insertMember", memberDto);
+		sqlSession.commit();
+		sqlSession.close();
+		return result;
+	}
+
+	@Override
 	public MemberDto getSelectOne(String code) {
 		MemberDto memberDto = null;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -40,16 +50,6 @@ public class MemberDao implements MemberService {
 		int result = 0;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		result = sqlSession.delete("deleteMember", memberDto);
-		sqlSession.commit();
-		sqlSession.close();
-		return result;
-	}
-
-	@Override
-	public int insertMember(MemberDto memberDto) {
-		int result = 0;
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		result = sqlSession.insert("insertMember", memberDto);
 		sqlSession.commit();
 		sqlSession.close();
 		return result;
