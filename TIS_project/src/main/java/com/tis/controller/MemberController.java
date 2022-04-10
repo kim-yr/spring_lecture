@@ -31,7 +31,11 @@ public class MemberController {
 		String search_name = request.getParameter("search_name");
 		List<MemberDto> memberList = memberDao.getAllMemberList(search_position, search_subject, search_name);
 
+<<<<<<< HEAD
 		System.out.println(search_position + "/" + search_subject + "/" + search_name);
+=======
+		
+>>>>>>> 1d47a5ac238cedf094f54b7188ee357784fd36ac
 		for (MemberDto md : memberList) {
 			System.out.println(md.toString());
 		}
