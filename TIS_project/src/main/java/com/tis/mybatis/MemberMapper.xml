@@ -54,47 +54,5 @@
 			WHERE
 			${searchSelect} LIKE '%'||#{searchWord}||'%'
 		</if>
-=======
-		SELECT * FROM MEMBER
-		<!-- 쿼리문 고민해보기 -->
-		<choose>
-			<when
-				test="searchPosition == null and searchSubject == null and (searchName == null or searchName == '')">
-			</when>
-			<otherwise>
-				WHERE
-				<choose>
-					<when test="searchPosition != null and searchPosition != ''">
-						CODE LIKE #{searchPosition} || '%'
-						<choose>
-							<when test="searchSubject != null and searchSubject != ''">
-								AND SUBJECT = #{searchSubject}
-								<if test="searchName != null and searchName != ''"> AND NAME LIKE '%' || #{searchName} || '%' </if>
-							</when>
-							<otherwise>
-								<if test="searchName != null and searchName != ''"> AND
-									NAME LIKE '%' || #{searchName} || '%' </if>
-							</otherwise>
-						</choose>
-					</when>
-					<otherwise>
-						<choose>
-							<when test="searchSubject != null and searchSubject != ''">
-								SUBJECT = #{searchSubject}
-								<if test="searchName != null and searchName != ''">
-									AND NAME LIKE '%' || #{searchName} || '%'
-								</if>
-							</when>
-							<otherwise>
-								<if test="searchName != null and searchName != ''"> NAME
-									LIKE '%' || #{searchName} || '%' </if>
-							</otherwise>
-						</choose>
-					</otherwise>
-				</choose>
-			</otherwise>
-		</choose>
-		ORDER BY NO ASC
->>>>>>> 1d47a5ac238cedf094f54b7188ee357784fd36ac
 	</select>
 </mapper>

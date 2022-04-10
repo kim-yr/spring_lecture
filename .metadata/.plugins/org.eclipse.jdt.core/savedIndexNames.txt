@@ -41,7 +41,6 @@ INDEX VERSION 1.131+C:\Users\user\Desktop\tis-java\spring_lecture2\.metadata\.pl
 959197213.index
 2379649952.index
 890150067.index
-1661315336.index
 3471372941.index
 2411598009.index
 3475424048.index
